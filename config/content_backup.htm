@@ -194,3 +194,12 @@
 <p># 取得馬達與感測器<br/>left_motor = robot.getDevice('left wheel motor')<br/>right_motor = robot.getDevice('right wheel motor')<br/>left_motor.setPosition(float('inf')) # velocity control<br/>right_motor.setPosition(float('inf'))</p>
 <p>ds = robot.getDevice('ds0')<br/>ds.enable(TIME_STEP)</p>
 <p>while robot.step(TIME_STEP) != -1:<br/>dist = ds.getValue()<br/>if dist &lt; 800:<br/># 避障（簡單反向轉向）<br/>left_motor.setVelocity(-2.0)<br/>right_motor.setVelocity(2.0)<br/>else:<br/>left_motor.setVelocity(3.0)<br/>right_motor.setVelocity(3.0)</p>
+<h3><strong>w14</strong></h3>
+<p>webots 的模型有沒有辦法用程式方法建立? 有沒有辦法直接從 CAD 套件中轉出 webots 的場景模型？</p>
+<p><strong data-end="26" data-start="5">     </strong><strong> 答案是可以的，但不能直接從 CAD 套件一鍵轉出 .wbt 場景。可行的是透過中介格式輸入 Webots，或寫程式自動產生。</strong></p>
+<h2 data-end="163" data-start="132">1. Webots 是否能用程式方法建立模型？</h2>
+<p data-end="175" data-start="164">可以，有兩種主要方式：</p>
+<h2 data-end="216" data-start="177">(A) 直接產生 .wbt 或 .proto 檔（最常用的方法）</h2>
+<p data-end="295" data-start="217">Webots 的世界檔案 *.wbt 與模型 *.proto 都是 純文字格式（基於 JSON-Like 的 Scene Tree 語法）。</p>
+<p data-end="334" data-start="297">你可以用任何語言寫程式（Python / C++ / JS / 等）產生：</p>
+<strong data-end="163" data-start="136"></strong>
